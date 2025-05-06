@@ -17,20 +17,22 @@ const ITEMS = [
 ];
 
 const Item = ({ icon: Icon, value, label }) => (
-  <div className="flex flex-1 items-center justify-center gap-9 border-r border-gray-200 last:border-0">
+  <div className="flex flex-1 py-8 items-center justify-center gap-9 border-b sm:border-b-0 sm:border-r border-gray-200 last:border-0">
     <div className="p-4 rounded-full bg-primary/10 text-primary">
       <Icon />
     </div>
     <div>
-      <p className="text-2xl font-semibold text-gray-800">{value}+</p>
-      <p className="text-sm text-gray-500">{label}</p>
+      <p className="text-3xl sm:text-2xl font-semibold text-gray-800">
+        {value}+
+      </p>
+      <p className="text-base sm:text-sm text-gray-500">{label}</p>
     </div>
   </div>
 );
 
 const Statistics = () => (
-  <div className="container">
-    <div className="w-full py-16 flex flex-col md:flex-row justify-between bg-white rounded-xl drop-shadow-[0_4px_4px_rgba(0,0,0,0.05)]">
+  <div className="container px-4 sm:px-0">
+    <div className="w-full gap-12 sm:gap-0 py-8 px-8 sm:px-0 flex flex-col sm:flex-row justify-between bg-white rounded-xl drop-shadow-[0_4px_4px_rgba(0,0,0,0.05)]">
       {ITEMS.map((item) => (
         <Item {...item} />
       ))}
