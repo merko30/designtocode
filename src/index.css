@@ -4,3 +4,11 @@
 @theme {
   --color-primary: #f53838;
 }
+
+@utility container {
+  margin: 0 auto;
+
+  @variant @xs {
+    padding: 0 1rem;
+  }
+}
