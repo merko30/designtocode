@@ -6,7 +6,7 @@ const FEATURES = [
 ];
 
 const Features = () => (
-  <div className="container flex flex-col md:flex-row items-center text-center md:text-left gap-8 md:gap-0">
+  <div className="container flex flex-col md:flex-row items-center text-center md:text-left gap-8 md:gap-0 pb-20">
     <img
       src="/section_2.svg"
       alt="computer-guy"
