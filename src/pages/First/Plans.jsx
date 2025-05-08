@@ -44,7 +44,7 @@ const PLANS = [
 ];
 
 const Plans = () => (
-  <div className="container pt-20">
+  <div className="container pt-20 px-4 md:px-0">
     <h2 className="text-4xl text-center font-semibold leading-normal mb-5">
       Choose Your Plan
     </h2>

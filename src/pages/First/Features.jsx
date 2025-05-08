@@ -16,7 +16,7 @@ const Features = () => (
       <h2 className="text-4xl font-semibold text-gray-800 mb-8 leading-normal">
         We Provide Many Features You Can Use
       </h2>
-      <p className="text-gray-600 text-sm mb-6">
+      <p className="text-gray-600 text-sm mb-15">
         You can explore the features that we provide with fun and have their own
         functions each feature.
       </p>

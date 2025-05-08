@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import Statistics from "./Statistics";
 import Features from "./Features";
 import Plans from "./Plans";
+import Map from "./Map";
 
 const First = () => {
   return (
@@ -13,6 +14,7 @@ const First = () => {
       <Features />
       <div className="bg-linear-to-b from-gray-50 to-white">
         <Plans />
+        <Map />
       </div>
       <div className="py-80" />
     </>
