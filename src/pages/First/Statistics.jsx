@@ -31,7 +31,7 @@ const Item = ({ icon: Icon, value, label }) => (
 );
 
 const Statistics = () => (
-  <div className="container px-4 sm:px-0">
+  <div className="container px-4 sm:px-0 pb-20">
     <div className="w-full gap-12 sm:gap-0 py-8 px-8 sm:px-0 flex flex-col sm:flex-row justify-between bg-white rounded-xl drop-shadow-[0_4px_4px_rgba(0,0,0,0.05)]">
       {ITEMS.map((item) => (
         <Item {...item} />
