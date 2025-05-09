@@ -52,7 +52,7 @@ const Plans = () => (
       Let's choose the package that is best for you and explore it happily and
       cheerfully.
     </p>
-    <div className="flex flex-col md:flex-row gap-12.5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12.5">
       {PLANS.map((plan, i) => (
         <div
           key={plan.id}

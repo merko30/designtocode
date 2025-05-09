@@ -5,6 +5,7 @@ import Features from "./Features";
 import Plans from "./Plans";
 import Map from "./Map";
 import Clients from "./Clients";
+import CustomerFeedbacks from "./CustomerFeedbacks";
 
 const First = () => {
   return (
@@ -17,6 +18,7 @@ const First = () => {
         <Plans />
         <Map />
         <Clients />
+        <CustomerFeedbacks />
       </div>
       <div className="py-80" />
     </>

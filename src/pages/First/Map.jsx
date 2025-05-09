@@ -7,11 +7,7 @@ const Map = () => (
       See <span className="font-medium">LaslesVPN</span> everywhere to make it
       easier for you when you move locations.
     </p>
-    <img
-      src="/map.svg"
-      alt="Map"
-      className="w-full h-auto flex-1 max-w-full scale-150"
-    />
+    <img src="/map.svg" alt="Map" className="w-full h-auto flex-1 max-w-full" />
   </div>
 );
 
