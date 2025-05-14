@@ -6,6 +6,7 @@ import Plans from "./Plans";
 import Map from "./Map";
 import Clients from "./Clients";
 import CustomerFeedbacks from "./CustomerFeedbacks";
+import Footer from "./Footer";
 
 const First = () => {
   return (
@@ -14,13 +15,13 @@ const First = () => {
       <Hero />
       <Statistics />
       <Features />
-      <div className="bg-linear-to-b from-gray-50 to-white">
+      <div className="pb-20 bg-linear-to-b from-gray-50 to-white">
         <Plans />
         <Map />
         <Clients />
         <CustomerFeedbacks />
       </div>
-      <div className="py-80" />
+      <Footer />
     </>
   );
 };

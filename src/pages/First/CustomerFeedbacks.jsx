@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import Button from "./Button";
+import { twMerge } from "tailwind-merge";
 
 const FEEDBACKS = [
   {
@@ -54,11 +55,16 @@ const WIDTH = 384;
 
 const CustomerFeedbacks = () => {
   const [translationX, setTranslationX] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const onPrevious = () => {
     setTranslationX((prev) => {
       const newValue = prev + WIDTH;
       return newValue > 0 ? 0 : newValue;
+    });
+    setCurrentIndex((prev) => {
+      const newValue = prev - 1;
+      return newValue < 0 ? 0 : newValue;
     });
   };
   const onNext = () => {
@@ -67,6 +73,10 @@ const CustomerFeedbacks = () => {
       return newValue < -(WIDTH * (FEEDBACKS.length - 1))
         ? -(WIDTH * (FEEDBACKS.length - 1))
         : newValue;
+    });
+    setCurrentIndex((prev) => {
+      const newValue = prev + 1;
+      return newValue >= FEEDBACKS.length ? FEEDBACKS.length - 1 : newValue;
     });
   };
 
@@ -85,7 +95,7 @@ const CustomerFeedbacks = () => {
       <div className="h-48" />
 
       <div
-        className="px-4 sm:pl-20 flex h-48 gap-4 absolute top-64 left-0 transition-transform duration-300 ease-in-out"
+        className="px-4 sm:pl-16 flex h-48 gap-4 absolute top-64 left-0 transition-transform duration-300 ease-in-out"
         style={{
           transform: `translateX(${translationX}px)`,
         }}
@@ -93,7 +103,10 @@ const CustomerFeedbacks = () => {
         {FEEDBACKS.map((feedback, index) => (
           <div
             key={index}
-            className="w-96 h-full border-2 border-gray-200 rounded-md p-7.5"
+            className={twMerge(
+              "w-96 h-full border-2 border-gray-200 rounded-md p-7.5",
+              index === currentIndex ? "border-primary" : ""
+            )}
           >
             <div className="w-full flex items-center justify-between gap-2 mb-5">
               <div className="flex items-center gap-2">
@@ -123,46 +136,59 @@ const CustomerFeedbacks = () => {
         ))}
       </div>
 
-      <div className="flex justify-end items-center gap-2 mt-10">
-        <Button
-          onClick={onPrevious}
-          variant="outline"
-          className="rounded-full size-10 flex items-center justify-center p-0 drop-shadow-none"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-            className="w-6 h-6 transform rotate-180"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 5l7 7-7 7"
+      <div className="container flex justify-between items-center mt-10">
+        <div className="flex items-center gap-1">
+          {FEEDBACKS.map((_, index) => (
+            <div
+              key={index}
+              className={twMerge(
+                "w-2 h-2 rounded-full bg-gray-300",
+                index === currentIndex ? "bg-primary" : ""
+              )}
             />
-          </svg>
-        </Button>
-        <Button
-          onClick={onNext}
-          className="rounded-full size-10 flex items-center justify-center p-0 drop-shadow-none"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-            className="w-6 h-6"
+          ))}
+        </div>
+        <div className="flex justify-end items-center gap-2">
+          <Button
+            onClick={onPrevious}
+            variant="outline"
+            className="rounded-full size-10 flex items-center justify-center p-0 drop-shadow-none"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </Button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+              className="w-6 h-6 transform rotate-180"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </Button>
+          <Button
+            onClick={onNext}
+            className="rounded-full size-10 flex items-center justify-center p-0 drop-shadow-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </Button>
+        </div>
       </div>
     </div>
   );
